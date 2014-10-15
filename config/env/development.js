@@ -3,5 +3,8 @@ module.exports = {
         name: 'boilerplate',
         username: 'root',
         password: 'admin'
+    },
+    app: {
+        name: 'boilerplate'
     }
 };
