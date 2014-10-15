@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var flash = require('connect-flash');
 
-module.exports = function (app, passport) {
+module.exports = function (app) {
     /**
      * Setup express middlewares
      * ====================================================
