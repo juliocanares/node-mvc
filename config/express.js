@@ -8,8 +8,20 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var flash = require('connect-flash');
+var swig = require('swig');
 
 module.exports = function (app) {
+    /**
+     * View engine setup
+     * ====================================================
+     */
+    app.engine('html', swig.renderFile);
+    app.set('views', global.cf.views);
+    app.set('view engine', 'html');
+    app.set('view cache', false);
+
+    swig.setDefaults({cache: false});
+
     /**
      * Setup express middlewares
      * ====================================================
