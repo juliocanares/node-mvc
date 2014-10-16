@@ -18,6 +18,11 @@ var app = express();
 // load express configuration
 require('./config/express')(app);
 
+
+app.use('/', function (req, res) {
+	return res.render('pages/index.html');
+});
+
 app.set('port', process.env.PORT || global.cf.port);
 
 global.lift(app);
