@@ -11,3 +11,6 @@ var express = require('express');
 global.cf = require('./config/config');
 
 var app = express();
+
+// load express configuration
+require('./config/express')(app);
