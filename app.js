@@ -18,6 +18,7 @@ var app = express();
 // load express configuration
 require('./config/express')(app);
 require('./config/routes').init(app);
+require('./config/errors')(app);
 
 
 app.set('port', process.env.PORT || global.cf.port);
