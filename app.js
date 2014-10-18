@@ -11,6 +11,7 @@ var express = require('express');
  * ====================================================
  */
 global.cf = require('./config/config');
+global.md = require('./config/middlewares');
 global.utils = require('./config/utils');
 
 var app = express();
