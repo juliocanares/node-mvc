@@ -3,6 +3,7 @@
  * ====================================================
  */
 var pagesRouter = require(global.cf.routes + '/pages');
+var authRouter = require(global.cf.routes + '/auth');
 var userRouter = require(global.cf.routes + '/user');
 
 /**
@@ -10,6 +11,7 @@ var userRouter = require(global.cf.routes + '/user');
  * ====================================================
  */
 exports.init = function (app) {
-    app.use('/', global.md.redirectToUsers, pagesRouter);
-    app.use('/users', userRouter);
+    app.use('/', pagesRouter);
+    app.use('/auth', authRouter);
+    app.use('/users', global.md.isLogged, userRouter);
 };
