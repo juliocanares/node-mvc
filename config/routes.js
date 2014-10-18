@@ -10,6 +10,6 @@ var userRouter = require(global.cf.routes + '/user');
  * ====================================================
  */
 exports.init = function (app) {
-    app.use('/', pagesRouter);
+    app.use('/', global.md.redirectToUsers, pagesRouter);
     app.use('/users', userRouter);
 };
