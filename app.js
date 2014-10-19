@@ -15,7 +15,10 @@ global.md = require('./config/middlewares');
 global.db = require('./config/sequelize');
 global.utils = require('./config/utils');
 
+var seeds = require('./config/seeds');
+
 var app = express();
+
 
 // load express configuration
 require('./config/express')(app);
