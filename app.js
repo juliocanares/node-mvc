@@ -30,5 +30,7 @@ app.set('port', process.env.PORT || global.cf.port);
 
 
 global.db.sequelize.sync({force: true}).then(function () {
-    global.lift(app);
+	seeds.start().then(function () {
+      global.lift(app);
+  });
 });
