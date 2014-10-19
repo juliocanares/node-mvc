@@ -37,3 +37,13 @@ fs.readdirSync(global.cf.models)
         var model = sequelize.import(path.join(global.cf.models, file));
         db[model.name] = model;
     });
+
+/**
+ * Invoke all association on each of the models
+ * ====================================================
+ */
+Object.keys(db).forEach(function (modelName) {
+    if ("associate" in db[modelName]) {
+        db[modelName].associate(db);
+    }
+});
