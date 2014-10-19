@@ -25,4 +25,7 @@ require('./config/errors')(app);
 
 app.set('port', process.env.PORT || global.cf.port);
 
-global.lift(app);
+
+global.db.sequelize.sync({force: true}).then(function () {
+    global.lift(app);
+});
