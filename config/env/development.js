@@ -2,7 +2,7 @@ module.exports = {
     db: {
       name: 'boilerplate',
       username: 'root',
-      password: 'admin'
+      password: ''
     },
     app: {
       name: 'boilerplate'
