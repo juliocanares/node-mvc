@@ -47,3 +47,12 @@ Object.keys(db).forEach(function (modelName) {
         db[modelName].associate(db);
     }
 });
+
+/**
+ * Assign the sequelize variable to db object
+ * ====================================================
+ */
+module.exports = _.extend({
+    sequelize: sequelize,
+    Sequelize: Sequelize
+}, db);
