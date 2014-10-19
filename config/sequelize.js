@@ -23,3 +23,17 @@ if (process.env.NODE_ENV == 'production') {
         global.cf.db.options
     );
 }
+
+/**
+ * Load all files in models folder
+ * ====================================================
+ */
+var db = {};
+fs.readdirSync(global.cf.models)
+    .filter(function (file) {
+        return (file.indexOf('.') !== 0) && (file !== 'index.js')
+    })
+    .forEach(function (file) {
+        var model = sequelize.import(path.join(global.cf.models, file));
+        db[model.name] = model;
+    });
