@@ -13,5 +13,5 @@ var userRouter = require(global.cf.routes + '/user');
 exports.init = function (app) {
     app.use('/', pagesRouter);
     app.use('/auth', authRouter);
-    app.use('/users', global.md.isLogged, userRouter);
+    app.use('/users', userRouter);
 };
