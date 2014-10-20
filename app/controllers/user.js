@@ -6,9 +6,10 @@ exports.index = function (req, res) {
 	});
 };
 
-
 exports.profile = function (req, res) {
-	global.db.User.find(req.params.id).then(function(user){
+	var query = {where:{id:req.params.id}};
+	
+	global.db.User.find(query).then(function(user){
     return res.render(basePath + 'profile', {user: user});
 	});
 };
