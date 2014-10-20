@@ -28,7 +28,6 @@ require('./config/errors')(app);
 
 app.set('port', process.env.PORT || global.cf.port);
 
-
 global.db.sequelize.sync({force: true}).then(function () {
 	seeds.start().then(function () {
       global.lift(app);
