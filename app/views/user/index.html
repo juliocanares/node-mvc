@@ -4,6 +4,12 @@
 	<title>User</title>
 </head>
 <body>
-Users
+	<ul>
+		{% for user in users %}
+			<li>
+				{{user.username}}
+			</li>
+		{% endfor %}
+	</ul>
 </body>
 </html>
