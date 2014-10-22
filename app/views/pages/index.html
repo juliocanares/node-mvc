@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Index</title>
-</head>
-<body>
-	Index Page
-</body>
-</html>
+{% extends '../partials/base.html' %}
+
+{% block body %}
+	<div class="jumbotron">
+    <h1>Welcome</h1>
+    <p class="lead">This is a boilerplate node.js app</p>
+    <p><a class="btn btn-lg btn-success" href="/auth/signup" role="button">Sign up</a></p>
+  </div>
+{% endblock %}
