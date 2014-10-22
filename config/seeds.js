@@ -12,7 +12,8 @@ var seedUser = function (numOfUsers) {
         promises.push(global.db.User.create({
             username: chance.hashtag().replace('#', ''),
             firstname: chance.name(),
-            lastname: chance.last()
+            lastname: chance.last(),
+            photo: 'http://lorempixel.com/200/200/'
         }));
     }
 
