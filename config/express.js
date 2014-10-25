@@ -10,7 +10,7 @@ var morgan = require('morgan');
 var flash = require('connect-flash');
 var swig = require('swig');
 
-module.exports = function (app) {
+module.exports = function (app, passport) {
     /**
      * View engine setup
      * ====================================================
@@ -37,4 +37,12 @@ module.exports = function (app) {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(express.static(global.cf.public));
+
+
+    /**
+     * Passport initialize
+     * ====================================================
+     */
+    app.use(passport.initialize());
+    app.use(passport.session());
 };
