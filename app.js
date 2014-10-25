@@ -22,7 +22,7 @@ var app = express();
 
 
 // load express configuration
-require('./config/express')(app);
+require('./config/express')(app, passport);
 require('./config/routes').init(app);
 require('./config/errors')(app);
 
