@@ -24,3 +24,13 @@ exports.signup = function (req, res) {
 exports.loginPage = function (req, res) {
     return res.render('auth/login');
 };
+
+
+/**
+ * User login
+ */
+exports.login = function (req, res) {
+    passport.authenticate('local', function (err, user, message) {
+        loginUser(req, res, user);
+    })(req, res);
+};
