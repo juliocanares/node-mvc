@@ -17,6 +17,7 @@ global.utils = require('./config/utils');
 
 var seeds = require('./config/seeds');
 
+var passport = require('./config/passport');
 var app = express();
 
 
