@@ -13,6 +13,7 @@ var seedUser = function (numOfUsers) {
             username: chance.hashtag().replace('#', ''),
             firstname: chance.name(),
             lastname: chance.last(),
+            email: chance.email(),
             photo: 'http://lorempixel.com/200/200/'
         }));
     }
