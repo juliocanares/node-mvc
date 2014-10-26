@@ -34,3 +34,12 @@ exports.login = function (req, res) {
         loginUser(req, res, user);
     })(req, res);
 };
+
+/**
+ * Login manually after signup or when the user exists
+ */
+var loginUser = function (req, res, user) {
+    req.login(user, function (err) {
+    		return res.redirect('/users/' + user.username);
+    });
+};
