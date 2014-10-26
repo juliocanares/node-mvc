@@ -40,6 +40,6 @@ exports.login = function (req, res) {
  */
 var loginUser = function (req, res, user) {
     req.login(user, function (err) {
-    		return res.redirect('/users/' + user.username);
+    		return res.redirect('/users/' + user.id);
     });
 };
