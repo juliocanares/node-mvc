@@ -1,3 +1,5 @@
+var passport = require('passport');
+
 var basePath = 'auth/';
 
 /**
@@ -24,7 +26,6 @@ exports.signup = function (req, res) {
 exports.loginPage = function (req, res) {
     return res.render('auth/login');
 };
-
 
 /**
  * User login
