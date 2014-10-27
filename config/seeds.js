@@ -2,7 +2,7 @@ var Chance = require('chance');
 var chance = new Chance();
 
 exports.start = function () {
-    var seeds = [seedUser(20)];
+    var seeds = [seedUser(3)];
     return global.db.Sequelize.Promise.all(seeds);
 };
 
