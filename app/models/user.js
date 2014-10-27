@@ -13,6 +13,9 @@ module.exports = function (sequelize, DataTypes) {
 	    	instanceMethods: {
           makeSalt: function () {
               return crypto.randomBytes(16).toString('base64');
+          },
+          authenticate: function (password) {
+              return this.encryptPassword(password, this.salt) === this.hashedPassword;
           }
         }
 	    }
