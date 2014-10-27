@@ -1,5 +1,6 @@
 var crypto = require('crypto');
 var uuid = require('node-uuid');
+var moment = require('moment');
 
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define('User', {
@@ -7,7 +8,16 @@ module.exports = function (sequelize, DataTypes) {
 	      email: DataTypes.STRING,
 	      firstname: DataTypes.STRING,
 	      lastname: DataTypes.STRING,
-	      fullname: DataTypes.STRING
+	      fullname: DataTypes.STRING,
+
+        hashedPassword: DataTypes.STRING,
+        salt: DataTypes.STRING,
+
+        tokenVerifyEmail: DataTypes.STRING,
+        tokenResetPassword: DataTypes.STRING,
+        tokenResetPasswordExpires: DataTypes.DATE
+        
+        verified: {type: DataTypes.BOOLEAN, defaultValue: false}
 	    },
 	    {
 	    	instanceMethods: {
@@ -36,8 +46,9 @@ module.exports = function (sequelize, DataTypes) {
             user.tokenVerifyEmail = uuid.v4();
             user.fullname = user.firstname + ' ' + user.lastname;
             return user.save();
-        }
-	    }
+        	}	
+	    	}
+	  	}
     );
     return User;
 };
