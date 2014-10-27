@@ -9,14 +9,14 @@ module.exports = function (sequelize, DataTypes) {
 	      firstname: DataTypes.STRING,
 	      lastname: DataTypes.STRING,
 	      fullname: DataTypes.STRING,
-
+	      photo: DataTypes.STRING,
         hashedPassword: DataTypes.STRING,
         salt: DataTypes.STRING,
 
         tokenVerifyEmail: DataTypes.STRING,
         tokenResetPassword: DataTypes.STRING,
-        tokenResetPasswordExpires: DataTypes.DATE
-        
+        tokenResetPasswordExpires: DataTypes.DATE,
+
         verified: {type: DataTypes.BOOLEAN, defaultValue: false}
 	    },
 	    {
