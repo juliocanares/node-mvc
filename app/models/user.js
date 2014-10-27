@@ -21,6 +21,11 @@ module.exports = function (sequelize, DataTypes) {
               if (!password || !salt) return '';
               salt = new Buffer(salt, 'base64');
               return crypto.pbkdf2Sync(password, salt, 10000, 64).toString('base64');
+          },
+          makeTokenResetPassword: function () {
+              this.tokenResetPassword = uuid.v4();
+              this.tokenResetPasswordExpires = moment().add(1, 'hour');
+              return this.save();
           }
         }
 	    }
