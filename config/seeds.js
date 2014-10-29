@@ -7,19 +7,11 @@ exports.start = function () {
 };
 
 var seedUser = function (numOfUsers) {
-    var i, username, email, promises = [];
+    var i, email, promises = [];
     for (i = 0; i < numOfUsers; i++) {
-        if (i == 0) {
-            username = 'juliocanares';
-            email = 'juliocanares@gmail.com';
-        } 
-        else {
-            username = chance.hashtag().replace('#', '');
-            email = chance.email();
-        }
-
+        email = i === 0 ? 'juliocanares@gmail.com' : chance.email();
+        
         promises.push(global.db.User.create({
-            username: username,
             firstname: chance.name(),
             lastname: chance.last(),
             email: email,
