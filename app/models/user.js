@@ -39,8 +39,10 @@ module.exports = function (sequelize, DataTypes) {
         },
         hooks: {
           afterCreate: function (user, options) {
+            var random = (Math.floor(100 + Math.random() * 300)).toString();
             options.password = options.password || '123';
             user.salt = user.makeSalt();
+            user.photo = 'http://lorempixel.com/' + random + '/' + random + '/';
             user.hashedPassword = user.encryptPassword(options.password, user.salt);
             user.tokenVerifyEmail = uuid.v4();
             user.fullname = user.firstname + ' ' + user.lastname;
