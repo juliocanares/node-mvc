@@ -13,10 +13,18 @@ exports.signupPage = function (req, res) {
  * User signup
  */
 exports.signup = function (req, res) {
-  var options = {password: req.body.password};
-  global.db.User.create(req.body, options).then(function (user) {
-      loginUser(req, res, user);
-  });
+  check('email', req.body.email).then(function (emailAvailable) {
+        if (!emailAvailable) {
+          req.flash('errorMessage', 'Email no esta disponible');
+          return res.redirect('back');
+        }
+
+        var options = {password: req.body.password};
+
+        global.db.User.create(req.body, options).then(function (user) {
+            loginUser(req, res, user);
+        });
+    });
 };
 
 
