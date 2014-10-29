@@ -20,7 +20,6 @@ var seeds = require('./config/seeds');
 var passport = require('./config/passport');
 var app = express();
 
-
 // load express configuration
 require('./config/express')(app, passport);
 require('./config/routes').init(app);
