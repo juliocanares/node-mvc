@@ -14,8 +14,7 @@ var seedUser = function (numOfUsers) {
         promises.push(global.db.User.create({
             firstname: chance.name(),
             lastname: chance.last(),
-            email: email,
-            photo: 'http://lorempixel.com/200/200/'
+            email: email
         }));
     }
 
