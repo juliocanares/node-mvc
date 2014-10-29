@@ -37,6 +37,18 @@ exports.login = function (req, res) {
 };
 
 /**
+ * Check helper to inspect values
+ * in the authentication process
+ */
+var check = function (property, value) {
+    var query = {where: {}};
+    query.where[property] = value;
+    return global.db.User.find(query).then(function (user) {
+        return user === null;
+    });
+};
+
+/**
  * Login manually after signup or when the user exists
  */
 var loginUser = function (req, res, user) {
