@@ -2,8 +2,15 @@
 
 {% block body %}
 	<div class="jumbotron">
-    <h1>Welcome</h1>
-    <p class="lead">This is a boilerplate node.js app</p>
-    <p><a class="btn btn-lg btn-success" href="/auth/signup" role="button">Sign up</a></p>
+    <h1>Welcome {{user.firstname}}</h1>
+    {% if user %}
+	    <p class="lead">have fun in this boilerplate, if you have question or suggestions
+	    <a href="mailto:juliocanares@gmail.com?Subject=Hey" target="_top">email me</a>
+			</p>
+	    <p><a class="btn btn-lg btn-success" href="/users" role="button">Browse users</a></p>
+		{% else %}
+	    <p class="lead">This is a boilerplate node.js app</p>
+	    <p><a class="btn btn-lg btn-success" href="/auth/signup" role="button">Sign up</a></p>
+    {% endif %}
   </div>
 {% endblock %}
