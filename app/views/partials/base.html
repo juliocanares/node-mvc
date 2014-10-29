@@ -16,15 +16,22 @@
             <li role="presentation"><a href="/">Home</a></li>
             <li role="presentation"><a href="/about">About</a></li>
             <li role="presentation"><a href="/contact">Contact</a></li>
+            {% if user %}
+              <li role="logout"><a href="/auth/logout">Logout</a></li>
+            {% endif %}
           </ul>
         </nav>
-        <h3 class="text-muted">Boilerplate Node App
-          {{user.username}}
-        </h3>
+        <h3 class="text-muted">Boilerplate Node App</h3>
       </div>
+      
+      {% if errorMessage.length > 0 %}
+        <div class="alert alert-danger" role="alert">{{errorMessage}}</div>
+      {% endif %}
+
       <div class='jumbotron'>
   			{% block body %} {% endblock %}
       </div>
+
       <footer class="footer">
         <p>&copy; Julio Canares 2014</p>
       </footer>
