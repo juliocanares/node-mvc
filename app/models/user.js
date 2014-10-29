@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes) {
         tokenVerifyEmail: DataTypes.STRING,
         tokenResetPassword: DataTypes.STRING,
         tokenResetPasswordExpires: DataTypes.DATE,
-
+        
         verified: {type: DataTypes.BOOLEAN, defaultValue: false}
 	    },
 	    {

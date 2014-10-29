@@ -7,13 +7,22 @@ exports.start = function () {
 };
 
 var seedUser = function (numOfUsers) {
-    var i, promises = [];
+    var i, username, email, promises = [];
     for (i = 0; i < numOfUsers; i++) {
+        if (i == 0) {
+            username = 'juliocanares';
+            email = 'juliocanares@gmail.com';
+        } 
+        else {
+            username = chance.hashtag().replace('#', '');
+            email = chance.email();
+        }
+
         promises.push(global.db.User.create({
-            username: chance.hashtag().replace('#', ''),
+            username: username,
             firstname: chance.name(),
             lastname: chance.last(),
-            email: chance.email(),
+            email: email,
             photo: 'http://lorempixel.com/200/200/'
         }));
     }
