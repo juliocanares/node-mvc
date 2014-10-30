@@ -71,6 +71,6 @@ var check = function (property, value) {
 var loginUser = function (req, res, user) {
     req.login(user, function (err) {
         req.flash('successMessage', 'You are logged in');
-    		return res.redirect('/users/' + user.id);
+    		return res.redirect('/users/');
     });
 };
