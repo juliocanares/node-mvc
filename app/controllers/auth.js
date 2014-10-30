@@ -40,6 +40,15 @@ exports.loginPage = function (req, res) {
  */
 exports.login = function (req, res) {
     passport.authenticate('local', function (err, user, message) {
+        if (err) {
+            req.flash('errorMessage', 'Something was wrong');
+            return res.redirect('back');  
+        }
+        if (!user){
+            req.flash('errorMessage', message);
+            return res.redirect('back');  
+        }
+
         loginUser(req, res, user);
     })(req, res);
 };
