@@ -53,6 +53,16 @@ exports.login = function (req, res) {
     })(req, res);
 };
 
+
+/**
+ * User logout
+ */
+exports.logout = function (req, res) {
+    req.session.destroy(function (err) {
+        return res.redirect('/');
+    });
+};
+
 /**
  * Check helper to inspect values
  * in the authentication process
@@ -74,3 +84,4 @@ var loginUser = function (req, res, user) {
     		return res.redirect('/users/');
     });
 };
+
