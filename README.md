@@ -12,6 +12,6 @@
 * moment.js
 * passport.js
 
-## TL;DR
+## Instructions
 
 Use with ``nodejs^0.12.0`, clone the repo, `npm install` and `node app.js`.
