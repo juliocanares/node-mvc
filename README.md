@@ -1,6 +1,6 @@
-# MVC Boilerplate node.js app
+# MVC Node.js application boilerplate
 
-> A boilerplate for **Node.js** running on **Express.js**.
+> A boilerplate for **Node.js** running on top of **Express.js**.
 
 **Demo:** it's coming
 
@@ -16,7 +16,9 @@
 	
 * mvc structure
 * jobs management
-* authentication
+* sign up
+* login
+* logout
 * email validation
 * password recovery
 * etc.
